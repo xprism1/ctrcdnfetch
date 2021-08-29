@@ -428,14 +428,13 @@ struct curl_slist* DownloadManager::SlistClone() {
 }
 
 void DownloadManager::SetGlobalProxy(const char* proxy) {
-	const char* tmp = NULL;
+	char* tmp = NULL;
 	if(proxy) {
-		tmp = malloc(strlen(proxy)+1);
+		tmp = static_cast<char*>(malloc(strlen(proxy)+1));
 		if(!tmp) throw std::bad_alloc();
 		strcpy(tmp, proxy);
 	}
 	global_proxy_lock.lock();
-	free(global_proxy);
 	global_proxy = tmp;
 	global_proxy_lock.unlock();
 }

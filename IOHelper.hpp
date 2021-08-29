@@ -60,7 +60,6 @@ namespace IOHelper {
 		virtual void Seek(s64 offset, int whence);
 		virtual s64 Tell();
 		virtual void Rewind();
-		virtual s64 Size();
 		MemoryIO(void* in, s64 length);
 	};
 

@@ -12,7 +12,7 @@ STRIP = $(TOOLCHAIN_PREFIX)strip
 #wildcard on strip and rm because if it's a g++ for windows, it will add .exe
 
 all: $(OBJS)
-	$(CXX) -o "bin/$(OUTPUT)" $(OBJS) $(LIBS)
+	$(CXX) -o "bin/$(OUTPUT)" $(OBJS) $(LIBS) $(LDFLAGS) $(CPPFLAGS)
 	$(STRIP) "bin/$(OUTPUT)"*
 
 clean:
